@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Repository bean: no dependencies of its own -->
+    <bean id="bookRepository" class="com.library.repository.BookRepository" />
+
+    <!-- Service bean: BookRepository is wired in TWO ways at once -
+         1) constructor-arg -> invokes BookService(BookRepository) (constructor injection)
+         2) property        -> invokes setBookRepository(BookRepository) (setter injection)
+         Spring always calls the constructor first, then applies any
+         <property> values afterwards. -->
+    <bean id="bookService" class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository" />
+        <property name="bookRepository" ref="bookRepository" />
+    </bean>
+
+</beans>
