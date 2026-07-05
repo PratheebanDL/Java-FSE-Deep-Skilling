@@ -26,6 +26,7 @@ public class BookService {
     // Setter for dependency injection (setter-based wiring)
     public void setBookRepository(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
+        System.out.println("BookService: BookRepository injected via setter (Spring IoC).");
     }
 
     public void listBooks() {
