@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        country.xml — Spring XML configuration holding the master list of
+        countries. Using <util:list> creates a java.util.List<Country> bean
+        (id="countryList") made up of the individual Country beans below.
+        This list bean is injected into CountryService via:
+
+            @Autowired
+            @Qualifier("countryList")
+            private List<Country> countries;
+    -->
+    <util:list id="countryList" list-class="java.util.ArrayList"
+               value-type="com.cognizant.springlearn.model.Country">
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="IN" />
+            <property name="name" value="India" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="US" />
+            <property name="name" value="United States" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="GB" />
+            <property name="name" value="United Kingdom" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="AU" />
+            <property name="name" value="Australia" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="CA" />
+            <property name="name" value="Canada" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="DE" />
+            <property name="name" value="Germany" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="FR" />
+            <property name="name" value="France" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="JP" />
+            <property name="name" value="Japan" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="SG" />
+            <property name="name" value="Singapore" />
+        </bean>
+
+        <bean class="com.cognizant.springlearn.model.Country">
+            <property name="code" value="AE" />
+            <property name="name" value="United Arab Emirates" />
+        </bean>
+
+    </util:list>
+
+</beans>
