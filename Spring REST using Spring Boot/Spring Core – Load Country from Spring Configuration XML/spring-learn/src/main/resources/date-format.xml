@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Bean definition for java.text.SimpleDateFormat.
+        The pattern "dd/MM/yyyy" is passed in via the constructor,
+        so every place in the application that needs this exact
+        SimpleDateFormat can simply look up this single shared bean
+        instead of instantiating a new SimpleDateFormat("dd/MM/yyyy") each time.
+    -->
+    <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="dd/MM/yyyy" />
+    </bean>
+
+</beans>
