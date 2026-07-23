@@ -1,0 +1,81 @@
+.course-card {
+  background: #fff;
+  border: 1px solid #e4e7eb;
+  border-left: 6px solid grey;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+  transition: max-height 0.2s ease;
+}
+
+.course-card.card--enrolled {
+  box-shadow: 0 0 0 2px #43a047 inset;
+}
+
+.course-card.card--full {
+  background-color: #fff7ed;
+}
+
+.course-card.expanded {
+  min-height: 180px;
+}
+
+.code {
+  color: #7b8794;
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+.credits {
+  font-size: 0.85rem;
+  color: #364152;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.badge--passed {
+  background-color: #43a047;
+}
+
+.badge--failed {
+  background-color: #e53935;
+}
+
+.badge--pending {
+  background-color: #9aa5b1;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  background-color: #1f2933;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.link-btn {
+  background: none !important;
+  color: #1f2933 !important;
+  text-decoration: underline;
+  padding: 6px 0 !important;
+}
+
+.details {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #52606d;
+}

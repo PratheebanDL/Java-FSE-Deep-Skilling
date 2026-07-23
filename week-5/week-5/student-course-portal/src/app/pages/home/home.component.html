@@ -1,0 +1,33 @@
+<section class="home">
+  <h1>{{ portalName }}</h1>
+  <p class="tagline">
+    View your profile, browse and enroll in courses, and track your grades —
+    all in one place.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-value">{{ coursesAvailable }}</span>
+      <span class="stat-label">Courses Available</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ enrolledCount }}</span>
+      <span class="stat-label">Enrolled</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ gpa }}</span>
+      <span class="stat-label">GPA</span>
+    </div>
+  </div>
+
+  <button [disabled]="!isPortalActive" (click)="onEnrollClick()">
+    Enroll Now
+  </button>
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <div class="search-box">
+    <label for="searchTerm">Search courses</label>
+    <input id="searchTerm" [(ngModel)]="searchTerm" placeholder="e.g. Angular" />
+    <p>Searching for: {{ searchTerm }}</p>
+  </div>
+</section>

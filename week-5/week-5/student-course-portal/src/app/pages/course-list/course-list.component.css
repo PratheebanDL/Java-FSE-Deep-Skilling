@@ -1,0 +1,15 @@
+.course-list-page h2 {
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.selected {
+  margin-top: 16px;
+  font-weight: 600;
+  color: #1f2933;
+}

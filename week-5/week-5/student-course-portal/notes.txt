@@ -1,0 +1,78 @@
+HANDS-ON 1 - TASK 1 - STEP 2
+Notes explaining the purpose of each generated Angular project file
+=====================================================================
+
+angular.json
+------------
+The Angular CLI workspace configuration file. It defines how the project is
+built, served, and tested - including the output path, source root, budgets,
+styles/scripts to include, and per-environment (development/production)
+build configurations.
+
+tsconfig.json
+-------------
+The root TypeScript configuration shared by the whole workspace. It sets
+strict type-checking rules, the compile target (ES2022), module resolution
+strategy, and Angular-specific compiler flags under "angularCompilerOptions"
+(e.g. strictTemplates).
+
+tsconfig.app.json
+-----------------
+Extends the root tsconfig.json specifically for the browser application
+build. It points to src/main.ts as the entry file and excludes spec files,
+so the app bundle only contains runtime application code.
+
+package.json
+------------
+Lists the project's npm dependencies (Angular packages, RxJS, zone.js) and
+devDependencies (Angular CLI, build tools, testing libraries), plus the
+npm scripts (start, build, test) used to run common CLI commands.
+
+src/main.ts
+-----------
+The application's entry point. It calls bootstrapApplication(AppComponent,
+appConfig) to start the standalone Angular application in the browser -
+this is where Angular first "wakes up".
+
+src/app/app.config.ts
+----------------------
+The standalone-mode replacement for app.module.ts. It provides the
+application-wide providers (router, HttpClient, forms, NgRx store, etc.)
+that used to live in @NgModule's providers array.
+
+src/app/app.component.ts
+--------------------------
+The root component of the application. Its template hosts the persistent
+header and the <router-outlet> where all routed page components are
+rendered.
+
+src/index.html
+---------------
+The single HTML page served to the browser. It contains the <app-root>
+element that Angular bootstraps into, and is the shell into which the
+entire single-page application is rendered.
+
+=====================================================================
+HANDS-ON 1 - TASK 1 - STEP 5
+angular.json budgets (architect > build > configurations > production)
+=====================================================================
+maximumWarning: the bundle-size threshold (per budget type) beyond which
+the CLI prints a build WARNING but still completes the build successfully.
+
+maximumError: the bundle-size threshold beyond which the CLI FAILS the
+build outright, forcing you to reduce bundle size before you can ship.
+
+Two budget types are configured:
+- "initial": the total size of the app's initial JS bundle (500kb warn /
+  1mb error) - controls overall app payload on first load.
+- "anyComponentStyle": the size of any single component's CSS file
+  (4kb warn / 8kb error) - keeps individual component stylesheets lean.
+
+=====================================================================
+STANDALONE COMPONENTS NOTE
+=====================================================================
+This project uses Angular 20's standalone API (no NgModules). Every
+component/directive/pipe declares its own "imports" array in the
+@Component/@Directive/@Pipe decorator instead of being registered in an
+NgModule's "declarations". src/app/app.config.ts + src/app/app.routes.ts
+take the place of app.module.ts + app-routing.module.ts.
